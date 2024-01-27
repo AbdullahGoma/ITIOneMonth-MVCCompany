@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ProjectCompany.Models.Project>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pnumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Plocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pnumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Plocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Pnumber }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.Pnumber }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Pnumber })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
